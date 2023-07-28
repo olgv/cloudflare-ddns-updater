@@ -44,13 +44,12 @@ Make sure you make both the script `cloudflare-template.sh` (or how ever you dec
 chmod +x cloudflare-template.sh
 chmod +x current-ip.txt
 ```
-
+and keep the two files together, in the same place.
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
 ## Reference
 This script is an amendment to the original [`cloudflare-ddns-updater`](https://github.com/K0p1-Git/cloudflare-ddns-updater). Support by [K0p1-Git](https://github.com/K0p1-Git) via PayPal [here](https://www.paypal.me/Jasonkkf).  
-
 This script was also made with reference from [Keld Norman](https://www.youtube.com/watch?v=vSIBkH7sxos) video.
 
 ## License
