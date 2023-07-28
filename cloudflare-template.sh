@@ -34,6 +34,32 @@ if [[ ! $ip =~ ^$ipv4_regex$ ]]; then
 fi
 
 ###########################################
+## Check if the IP has changed
+###########################################
+current_ip_file="$(dirname "$(readlink -f "$0")")/current-ip.txt"
+
+# Check if the "current-ip.txt" file exists
+if [[ -f "$current_ip_file" ]]; then
+    stored_ip=$(cat "$current_ip_file")
+    if [[ "$stored_ip" = "$ip" ]]; then
+        logger "DDNS Updater: IP has not changed. No update needed."
+        echo "IP has not changed. No update needed."
+        exit 0
+    fi
+else
+    logger "DDNS Updater: 'current-ip.txt' not found. Creating the file."
+fi
+
+# Log the current and new IP
+logger "DDNS Updater: Current IP: $stored_ip, New IP: $ip"
+
+# Update the "current-ip.txt" file with the new IP.
+echo "$ip" > "$current_ip_file"
+
+echo "IP has changed. Proceeding with update."
+
+
+###########################################
 ## Check and set the proper auth header
 ###########################################
 if [[ "${auth_method}" == "global" ]]; then
