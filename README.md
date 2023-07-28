@@ -5,7 +5,7 @@ This script is used to update Dynamic DNS (DDNS) service based on Cloudflare! Ac
 
 This fork is an amendment to [`cloudflare-ddns-updater`](https://github.com/K0p1-Git/cloudflare-ddns-updater) adding a function that checks if the IP has changed, as there is no need to update the DNS record since it already points to the correct IP address. This check helps reduce unnecessary API calls to Cloudflare and saves resources.  
 
-On the other hand, if the IP from the external source is different from the one in the "current-ip.txt" file, the script will log this IP into the file and go ahead with updating the DNS record using the new IP.
+On the other hand, if the IP is changing, the script will log this IP into the `current-ip.txt` file and go ahead with updating the DNS record using the new IP.
 
 
 ## Installation
